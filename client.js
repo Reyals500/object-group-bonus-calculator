@@ -72,6 +72,12 @@ if(employee.employeeNumber.length === 4){
 if (Number(employee.annualSalary) > 65000){
   bonus = bonus -1
 }
+if(bonus > 13){
+  bonus = 13
+}
+if(bonus < 0){
+  bonus = 0
+}
 
 
   // for ( let object of employee){
@@ -140,4 +146,4 @@ return result;
 
 }
 //Todo later this will turn into a loop
-calculateIndividualEmployeeBonus(employees[2]);
+calculateIndividualEmployeeBonus(employees[3]);
