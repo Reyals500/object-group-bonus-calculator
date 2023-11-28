@@ -64,7 +64,6 @@ if ( employee.reviewRating === 4){
 if ( employee.reviewRating === 5){
   bonus = 10
 }
-
 if(employee.employeeNumber.length === 4){
   console.log(`${employee.name} has been around for a while`);
   bonus = bonus + 5
@@ -78,6 +77,14 @@ if(bonus > 13){
 if(bonus < 0){
   bonus = 0
 }
+let bonusPercentage = bonus / 100
+// console.log('Bonus Percentage', bonusPercentage);
+
+let totalBonus = bonusPercentage * employee.annualSalary
+// console.log('Total Bonus', totalBonus);
+
+let totalCompensation = Number(employee.annualSalary) + totalBonus
+// console.log('Total Compensation', totalCompensation);
 
 
   // for ( let object of employee){
@@ -137,13 +144,17 @@ if(bonus < 0){
   // return new object with bonus results
   let result = {
     name: employee.name,
-    bonusPercentage: bonus,
-    totalCompensation: '<TOTALCOMPENSATION>',
-    totalBonus: '<TOTALBONUS>'
+    bonusPercentage: bonusPercentage,
+    totalCompensation: totalCompensation,
+    totalBonus: bonus
   }
 console.log(`bonuses for ${employee.name}:`, result);
 return result;
 
 }
 //Todo later this will turn into a loop
-calculateIndividualEmployeeBonus(employees[3]);
+
+
+for(let empl of employees){
+  console.log(calculateIndividualEmployeeBonus(empl));
+}
