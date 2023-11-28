@@ -32,7 +32,7 @@ const employees = [
   }
 ];
 
-console.log('array of employee data: ',  employees );
+// console.log('array of employee data: ',  employees );
 
 
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
@@ -48,10 +48,96 @@ console.log('array of employee data: ',  employees );
 
 // This function will calculate 1 employee's bonus!
 //
+
 function calculateIndividualEmployeeBonus( employee ) {  
   // your logic here
-  
+let bonus;
+if (employee.reviewRating <= 2){
+  bonus = 0
+}
+if ( employee.reviewRating === 3){
+  bonus = 4
+}
+if ( employee.reviewRating === 4){
+  bonus = 6
+}
+if ( employee.reviewRating === 5){
+  bonus = 10
+}
+
+if(employee.employeeNumber.length === 4){
+  console.log(`${employee.name} has been around for a while`);
+  bonus = bonus + 5
+}
+if (Number(employee.annualSalary) > 65000){
+  bonus = bonus -1
+}
+
+
+  // for ( let object of employee){
+  //   console.log('inside of calculateIndividualEmployeeBonus', object);
+  //   if(object.reviewRating <= 2){
+  //     console.log('You get no bonus');
+  //   } if(object.reviewRating===3){
+  //     let bonus = 0.04 * object.annualSalary;
+  //     console.log('YOU JUST GOT BONUS:', bonus)
+  //   } if(object.reviewRating===4){
+  //     let bonus = 0.06 * object.annualSalary;
+  //     console.log('YOU JUST GOT BONUS:', bonus)
+  //   } if(object.reviewRating===5){
+  //     let bonus = 0.1 * object.annualSalary;
+  //     console.log('YOU JUST GOT BONUS:', bonus)
+  //   } 
+ 
+    
+  // let bonus = 0
+
+  //   for ( let object of employee){
+  //     console.log('inside of calculateIndividualEmployeeBonus', object);
+  //     if(object.reviewRating <= 2){
+  //       console.log('You get no bonus');
+  //     } if(object.reviewRating===3){
+  //       bonus = .04
+  //       bonus = bonus * object.annualSalary
+  //       console.log('YOU JUST GOT BONUS:', bonus)
+  //     } 
+  //     if(object.reviewRating===4){
+  //       let bonus = 0.06 * object.annualSalary;
+  //       console.log('YOU JUST GOT BONUS:', bonus)
+  //     } if(object.reviewRating===5){
+  //       let bonus = 0.1 * object.annualSalary;
+  //       console.log('YOU JUST GOT BONUS:', bonus)
+  //     } 
+  //   }
+    
+//     If their employee number is 4 digits long, this means they have been with the company for longer than 15 years,
+// and should receive an additional 5%.
+// - However, if their annual income is greater than $65,000, they should have their bonus adjusted down 1%.
+// - No bonus can be above 13% or below 0% total.
+
+
+    
+    
+  //   if(object.employeeNumber.length === 4, object.annualSalary > 65000 Ob ) {
+
+  //     let extraBonus = 0.05 * object.annualSalary ;
+
+  //     console.log('YOU JUST GOT BONUS:', extraBonus)
+
+  //   }
+  // }
+ 
   
   // return new object with bonus results
+  let result = {
+    name: employee.name,
+    bonusPercentage: bonus,
+    totalCompensation: '<TOTALCOMPENSATION>',
+    totalBonus: '<TOTALBONUS>'
+  }
+console.log(`bonuses for ${employee.name}:`, result);
+return result;
 
 }
+//Todo later this will turn into a loop
+calculateIndividualEmployeeBonus(employees[2]);
